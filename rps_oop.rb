@@ -66,7 +66,7 @@ class Game
     end
   end
 
-  def play_again?
+  def play_again
     play_again = nil
   
     begin 
@@ -90,7 +90,7 @@ class Game
     puts "-----"
     decide_winner
     puts "-----"
-    play_again?
+    play_again
   end
 end
 
