@@ -1,11 +1,3 @@
-# Building Rock, Paper, Scissors. Program asks player to select rock paper or
-# scissors. Program then has computer select rock, paper, or scissors randomly.
-# Then program compares the two and based on the selections, chooses a winner.
-# Program then declares a winner and asks player if they wish to play again.
-
-# Player, rock, paper, scissors, computer
-# compare, choose winner, play again?
-
 class Player
   attr_accessor :name, :choice
 
@@ -30,7 +22,6 @@ class Player
   def to_s
     "#{name} picked #{choice}"
   end
-
 end
 
 class Computer
@@ -48,9 +39,7 @@ class Computer
   def to_s
     "#{name} picked #{choice}"
   end
-
 end
-
 
 class Game
   attr_accessor :player, :computer
@@ -68,7 +57,9 @@ class Game
   def decide_winner
     if player.choice == computer.choice
       puts "It's a Tie!"
-    elsif (player.choice == 'Rock' && computer.choice == 'Scissors') || (player.choice == 'Scissors' && computer.choice == 'Paper') || (player.choice == 'Paper' && computer.choice == 'Rock')
+    elsif (player.choice == 'Rock' && computer.choice == 'Scissors') ||
+    (player.choice == 'Scissors' && computer.choice == 'Paper') ||
+    (player.choice == 'Paper' && computer.choice == 'Rock')
       puts "#{player.name} Wins!"
     else
       puts "#{computer.name} Wins!"
@@ -76,18 +67,18 @@ class Game
   end
 
   def play_again?
-  play_again = nil
+    play_again = nil
   
-  begin 
-    puts "Play again? (Y/N)"
-    play_again = gets.chomp.downcase
-  end until play_again == 'y' || play_again == 'n'
+    begin 
+      puts "Play again? (Y/N)"
+      play_again = gets.chomp.downcase
+    end until play_again == 'y' || play_again == 'n'
 
-  if play_again == 'y'
-    system_clear
-    Game.new(player.name).play
+    if play_again == 'y'
+      system_clear
+      Game.new(player.name).play
+    end
   end
-end
 
   def play
     system_clear
